@@ -61,6 +61,11 @@ will see host-key-changed warnings) — fine for bring-up, wrong for production.
 Drop this directory into `components/littlessh/` (or reference via the
 component manager manifest). `psa_crypto_init()` is called internally.
 See `examples/esp32_shell/` for a complete NVS-persisted-hostkey config shell.
+It brings up W5500 SPI Ethernet on the LilyGO T-ETH-ELITE S3 and has been
+verified end-to-end: a stock OpenSSH client negotiates curve25519-sha256 /
+ecdsa-sha2-nistp256 / aes256-gcm@openssh.com, authenticates, and runs the
+shell. (Note: set `cfg.listen_fd = -1` to have littlessh create the socket —
+`0` is a valid fd, so a zero-initialized config would otherwise try fd 0.)
 
 IDF 6.0+ defaults enable the required PSA algorithms (X25519, ECDSA-P256,
 AES-GCM, SHA-256). On IDF 5.x verify `MBEDTLS_ECP_DP_CURVE25519_ENABLED` is

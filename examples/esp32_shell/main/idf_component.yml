@@ -1,0 +1,4 @@
+dependencies:
+  idf: ">=5.0"
+  # W5500 SPI Ethernet driver (split out of esp_eth on IDF v6.0+).
+  espressif/w5500: "^1.0.1"
