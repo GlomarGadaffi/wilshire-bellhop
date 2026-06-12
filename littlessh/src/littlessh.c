@@ -1199,7 +1199,9 @@ int lssh_server_run(const lssh_config_t *cfg){
 
     int lfd = cfg->listen_fd;
     bool own_lfd = false;
-    if (lfd < 0){
+    /* <=0 means "create the socket": 0 is a valid fd (stdin) and the common
+     * result of a zero-initialized config, never a real listening socket. */
+    if (lfd <= 0){
         lfd = socket(AF_INET, SOCK_STREAM, 0);
         if (lfd < 0) return -3;
         int one = 1;

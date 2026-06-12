@@ -182,8 +182,7 @@ static void ssh_task(void *arg)
              "  (password: changeme)", IP2STR(&s_ip));
 
     lssh_config_t cfg = {
-        .port = 22,
-        .listen_fd = -1,          /* create the listening socket (0 would mean "use fd 0") */
+        .port = 22,               /* listen_fd left 0 -> littlessh creates the socket */
         .host_key = hostkey,
         .auth_max_tries = 3,
         .recv_timeout_ms = 300000,

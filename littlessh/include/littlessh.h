@@ -46,7 +46,9 @@ typedef struct lssh_session lssh_session_t;
 typedef struct lssh_config {
     /* --- listener --- */
     uint16_t port;        /* TCP port; 0 => 22 */
-    int listen_fd;        /* >=0: use an already-bound, listening fd; -1: create one */
+    int listen_fd;        /* >0: use this already-bound, listening fd.
+                           * <=0 (incl. a zero-initialized config): littlessh
+                           * creates and binds the socket itself. */
 
     /* --- identity --- */
     const uint8_t *host_key;  /* 32-byte P-256 private scalar (big-endian).
