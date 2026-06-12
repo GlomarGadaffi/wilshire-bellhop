@@ -1,0 +1,6 @@
+version: "0.1.0"
+description: "Minimal Apache-2.0-licensed SSH 2.0 server for ESP-IDF, pure PSA Crypto API"
+url: "https://github.com/GlomarGadaffi/GloSSHlet"
+license: "Apache-2.0"
+dependencies:
+  idf: ">=5.0"
