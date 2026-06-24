@@ -1,4 +1,4 @@
-# wilshire-bellhop
+# glossh
 
 minimal SSH 2.0 server for ESP-IDF on PSA Crypto (curve25519 / aes256-gcm / ecdsa-p256). single-threaded, one client at a time, callback-driven. intended for device configuration consoles, not bulk transfer — no SFTP, no port forwarding, no agent forwarding.
 
